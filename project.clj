@@ -1,4 +1,4 @@
-(defproject cuid "0.1.1-SNAPSHOT"
+(defproject cuid "0.1.1"
   :description "Collision-resistant ids optimized for horizontal scaling and performance."
   :url "https://github.com/hden/cuid"
   :license {:name "The MIT License"
