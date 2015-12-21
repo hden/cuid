@@ -13,7 +13,7 @@
   #?(:clj (System/currentTimeMillis)
      :cljs (.getTime (js/Date.))))
 
-(defn ^:private fingerprint []
+(def ^:private fingerprint
   #?(:clj {:pid (-> (java.lang.management.ManagementFactory/getRuntimeMXBean)
                     (.getName)
                     (string/split #"@")
