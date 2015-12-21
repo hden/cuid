@@ -1,31 +1,31 @@
 (ns cuid.core
   "Collision-resistant ids optimized for horizontal scaling and performance.
-  Ported from https://github.com/ericelliott/cuid
+  Ported from https://github.com/ericelliott/cuid.
   (cuid) returns a short random string with some collision-busting measures.
   Safe to use as HTML element ID's, and unique server-side record lookups."
   (:require [clojure.string :as string]))
 
-(def ^:private to-string #?(
-  :clj (fn [x y] (Long/toString x y))
-  :cljs (fn [x y] (.toString x y))))
+(defn ^:private to-string [x y]
+  #?(:clj (Long/toString x y)
+     :cljs (.toString x y)))
 
-(def ^:private timestamp #?(
-  :clj (fn [] (System/currentTimeMillis))
-  :cljs (fn [] (.getTime (js/Date.)))))
+(defn ^:private timestamp []
+  #?(:clj (System/currentTimeMillis)
+     :cljs (.getTime (js/Date.))))
 
-(def ^:private fingerprint #?(
-  :clj {:pid (-> (java.lang.management.ManagementFactory/getRuntimeMXBean)
-                 (.getName)
-                 (string/split #"@")
-                 (first))
-        :hostname (-> (java.net.InetAddress/getLocalHost)
-                      (.getCanonicalHostName))}
-  :cljs {:mime-type (js/navigator.mimeTypes.length)
-         :user-agent (js/navigator.userAgent.length)
-         :global-count (-> js/window
-                           (.-globalObject)
-                           (js->clj)
-                           (count))}))
+(defn ^:private fingerprint []
+  #?(:clj {:pid (-> (java.lang.management.ManagementFactory/getRuntimeMXBean)
+                    (.getName)
+                    (string/split #"@")
+                    (first))
+           :hostname (-> (java.net.InetAddress/getLocalHost)
+                         (.getCanonicalHostName))}
+     :cljs {:mime-type js/navigator.mimeTypes.length
+            :user-agent js/navigator.userAgent.length
+            :global-count (-> js/window
+                              (.-globalObject)
+                              (js->clj)
+                              (count))}))
 
 (defonce ^:private counter (atom 0))
 (def ^:const prefix "c")
