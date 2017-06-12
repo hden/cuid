@@ -10,8 +10,11 @@
                     (resolve '~expr)
                     (resolve (first '~expr)))]
        (prn (str "Timed "
-           (:name (meta res#))
-           ": " (/ (double (- (. System (nanoTime)) start#)) 1000000.0) " msecs"))
+                 (:name (meta res#))
+                 ": " (/ (double (- (. System (nanoTime))
+                                    start#))
+                         1000000.0)
+                 " msecs"))
        return#)))
 
 (defn collision-test [n f]
