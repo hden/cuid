@@ -39,7 +39,7 @@
  Safe to use as HTML element ID's, and unique server-side record lookups."
  (let [timestamp     (get coll :timestamp    timestamp)
        safe-counter! (get coll :counter      safe-counter!)
-       fingerprint   (get coll :fingerprint  "")
+       fingerprint   (get coll :fingerprint  (constantly 0))
        random-block  (get coll :random-block random-block)]
    (str prefix
         (to-string (timestamp) base)

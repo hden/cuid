@@ -24,4 +24,4 @@
   "A short random string with some collision-busting measure.
   Safe to use as HTML element ID's, and unique server-side record lookups."
   ([] (min/cuid {:fingerprint (constantly fingerprint)}))
-  ([coll] (min/cuid {fingerprint (constantly (hash coll))})))
+  ([coll] (min/cuid {:fingerprint (constantly (hash coll))})))

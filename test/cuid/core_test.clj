@@ -22,4 +22,7 @@
 
 (deftest cuid-test
   (testing "Collision test."
-    (timed (collision-test 1200000 cuid))))
+    (timed (collision-test 1200000 cuid)))
+
+  (testing "Custom fingerprint."
+    (is (cuid {}))))
