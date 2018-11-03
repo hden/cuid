@@ -1,4 +1,4 @@
-# cuid ![Build Status](https://circleci.com/gh/hden/cuid.svg?&style=shield&circle-token=67b78d410994ee5e3274458e1ddf7d1032cb7d5b)
+# cuid ![Build Status](https://circleci.com/gh/hden/cuid.svg?&style=shield&circle-token=67b78d410994ee5e3274458e1ddf7d1032cb7d5b) [![codecov](https://codecov.io/gh/hden/cuid/branch/master/graph/badge.svg)](https://codecov.io/gh/hden/cuid)
 Collision-resistant ids for clojure and clojurescript.
 Ported from https://github.com/ericelliott/cuid.
 (cuid) returns a short random string with some collision-busting measures.
