@@ -5,4 +5,4 @@
             :url "http://opensource.org/licenses/MIT"}
   :dependencies [[org.clojure/clojure "1.10.1"]]
   :global-vars {*warn-on-reflection* true}
-  :plugins [[lein-cloverage "1.2.0"]])
+  :plugins [[lein-cloverage "1.2.1"]])
