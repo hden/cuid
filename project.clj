@@ -3,6 +3,6 @@
   :url "https://github.com/hden/cuid"
   :license {:name "The MIT License"
             :url "http://opensource.org/licenses/MIT"}
-  :dependencies [[org.clojure/clojure "1.11.1"]]
+  :dependencies [[org.clojure/clojure "1.11.2"]]
   :global-vars {*warn-on-reflection* true}
   :plugins [[lein-cloverage "1.2.4"]])
